@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hà Vy & Thanh An · 10.10.2026</title>
+  <meta name="description" content="Mời bạn đến chung vui cùng Hà Vy và Thanh An, Thứ Bảy 10.10.2026.">
+  <meta property="og:title" content="Hà Vy & Thanh An · 10.10.2026">
+  <meta property="og:description" content="Câu chuyện, lịch trình, địa điểm và RSVP cho ngày cưới của chúng mình.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-cover.jpg">
+  <meta name="theme-color" content="#F6F2EA">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip" href="#main">Bỏ qua điều hướng</a>
+
+  <header class="nav" id="nav">
+    <a class="nav__mark" href="#top" data-bind="monogram">V &amp; A</a>
+    <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav__toggle-label">Menu</span>
+    </button>
+    <nav class="nav__links" id="nav-links" aria-label="Điều hướng chính">
+      <a href="#story">Câu chuyện</a>
+      <a href="#gallery">Hình ảnh</a>
+      <a href="#schedule">Lịch trình</a>
+      <a href="#dress">Dress code</a>
+      <a href="#venue">Địa điểm</a>
+      <a href="#songs">Bài hát</a>
+      <a href="#qa">Q&amp;A</a>
+      <a class="nav__cta" href="#rsvp">RSVP</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__text">
+        <p class="eyebrow">The wedding of</p>
+        <h1 class="hero__names">
+          <span data-bind="bride">Hà Vy</span>
+          <em class="hero__amp">&amp;</em>
+          <span data-bind="groom">Thanh An</span>
+        </h1>
+        <p class="hero__tagline" data-bind="tagline"></p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#rsvp">Xác nhận tham dự</a>
+          <button class="btn" type="button" data-ics>Lưu vào lịch</button>
+        </div>
+      </div>
+      <div class="hero__image" id="hero-image"></div>
+      <div class="hero__meta">
+        <div>
+          <p class="eyebrow">Ngày</p>
+          <p class="hero__meta-value" data-bind="dateLabel"></p>
+        </div>
+        <div>
+          <p class="eyebrow">Địa điểm</p>
+          <p class="hero__meta-value" data-bind="venueName"></p>
+        </div>
+        <div class="hero__count" id="countdown" aria-live="off"></div>
+      </div>
+    </section>
+
+    <!-- 01 STORY -->
+    <section class="section" id="story">
+      <header class="sec-head reveal">
+        <span class="sec-num">01</span>
+        <p class="eyebrow">Our Story</p>
+        <h2>Câu chuyện của chúng mình</h2>
+      </header>
+      <div class="story" id="story-list"></div>
+    </section>
+
+    <!-- 02 GALLERY -->
+    <section class="section" id="gallery">
+      <header class="sec-head reveal">
+        <span class="sec-num">02</span>
+        <p class="eyebrow">Gallery</p>
+        <h2>Những khung hình</h2>
+      </header>
+      <div class="gallery" id="gallery-grid"></div>
+    </section>
+
+    <!-- 03 SCHEDULE -->
+    <section class="section" id="schedule">
+      <header class="sec-head reveal">
+        <span class="sec-num">03</span>
+        <p class="eyebrow">The Day</p>
+        <h2>Lịch trình ngày cưới</h2>
+      </header>
+      <ol class="schedule" id="schedule-list"></ol>
+    </section>
+
+    <!-- 04 DRESS CODE -->
+    <section class="section section--tint" id="dress">
+      <header class="sec-head reveal">
+        <span class="sec-num">04</span>
+        <p class="eyebrow">Dress Code</p>
+        <h2 id="dress-title"></h2>
+      </header>
+      <div class="dress reveal">
+        <div class="dress__intro">
+          <p class="lead" id="dress-text"></p>
+          <ul class="swatches" id="dress-palette" aria-label="Bảng màu gợi ý"></ul>
+        </div>
+        <div class="dress__lists">
+          <div>
+            <p class="eyebrow">Nên</p>
+            <ul class="plain-list" id="dress-dos"></ul>
+          </div>
+          <div>
+            <p class="eyebrow">Xin tránh</p>
+            <ul class="plain-list" id="dress-donts"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 VENUE -->
+    <section class="section" id="venue">
+      <header class="sec-head reveal">
+        <span class="sec-num">05</span>
+        <p class="eyebrow">Venue</p>
+        <h2 data-bind="venueName"></h2>
+      </header>
+      <div class="venue reveal">
+        <div class="venue__image" id="venue-image"></div>
+        <div class="venue__info">
+          <p class="lead" data-bind="venueAddress"></p>
+          <p class="venue__when"><span data-bind="dateLabel"></span> · <span data-bind="timeLabel"></span></p>
+          <div class="venue__actions">
+            <a class="btn btn--solid" id="map-link" target="_blank" rel="noopener">Mở Google Maps</a>
+            <button class="btn" type="button" data-ics>Tải file lịch (.ics)</button>
+            <a class="link" data-gcal target="_blank" rel="noopener">Thêm vào Google Calendar</a>
+          </div>
+          <dl class="notes" id="venue-notes"></dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 RSVP -->
+    <section class="section section--dark" id="rsvp">
+      <header class="sec-head reveal">
+        <span class="sec-num">06</span>
+        <p class="eyebrow">RSVP</p>
+        <h2>Bạn sẽ đến chứ?</h2>
+        <p class="sec-sub">Vui lòng xác nhận trước ngày <span data-bind="rsvpDeadlineLabel"></span>.</p>
+      </header>
+
+      <div class="rsvp reveal">
+        <div class="notice" id="rsvp-closed" hidden></div>
+
+        <div class="rsvp__done" id="rsvp-done" hidden tabindex="-1">
+          <p class="eyebrow">Đã ghi nhận</p>
+          <h3 id="rsvp-done-title"></h3>
+          <dl class="summary" id="rsvp-done-summary"></dl>
+          <button class="btn" type="button" id="rsvp-edit">Chỉnh sửa</button>
+        </div>
+
+        <form class="form" id="rsvp-form" novalidate hidden>
+          <div class="field">
+            <label for="rsvp-name">Họ và tên <span aria-hidden="true">*</span></label>
+            <input id="rsvp-name" name="name" type="text" autocomplete="name" required aria-describedby="err-name">
+            <p class="error" id="err-name" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="rsvp-phone">Số điện thoại</label>
+            <input id="rsvp-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="err-phone">
+            <p class="error" id="err-phone" role="alert"></p>
+          </div>
+
+          <fieldset class="field field--full">
+            <legend>Bạn có tham dự không? <span aria-hidden="true">*</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="attending" value="yes"><span>Có, mình sẽ đến</span></label>
+              <label class="choice"><input type="radio" name="attending" value="no"><span>Rất tiếc, mình không thể</span></label>
+            </div>
+            <p class="error" id="err-attending" role="alert"></p>
+          </fieldset>
+
+          <div class="field" data-if-attending>
+            <label for="rsvp-guests">Số người đi cùng</label>
+            <select id="rsvp-guests" name="guests">
+              <option value="0">Chỉ mình tôi</option>
+              <option value="1">1 người</option>
+              <option value="2">2 người</option>
+              <option value="3">3 người</option>
+              <option value="4">4 người</option>
+            </select>
+          </div>
+          <div class="field" data-if-attending>
+            <label for="rsvp-diet">Chế độ ăn hoặc dị ứng</label>
+            <input id="rsvp-diet" name="diet" type="text" placeholder="Ví dụ: ăn chay, dị ứng hải sản">
+          </div>
+
+          <fieldset class="field field--full">
+            <legend>Bạn là khách của</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="side" value="Cô dâu"><span>Cô dâu</span></label>
+              <label class="choice"><input type="radio" name="side" value="Chú rể"><span>Chú rể</span></label>
+              <label class="choice"><input type="radio" name="side" value="Cả hai"><span>Cả hai</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field field--full">
+            <label for="rsvp-message">Lời nhắn cho cô dâu chú rể</label>
+            <textarea id="rsvp-message" name="message" rows="3"></textarea>
+          </div>
+
+          <div class="form__actions field--full">
+            <button class="btn btn--solid" type="submit">Gửi xác nhận</button>
+            <button class="btn" type="button" id="rsvp-cancel" hidden>Hủy</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 07 SONGS -->
+    <section class="section" id="songs">
+      <header class="sec-head reveal">
+        <span class="sec-num">07</span>
+        <p class="eyebrow">Playlist</p>
+        <h2>Gửi một bài hát</h2>
+        <p class="sec-sub">Bài nào khiến bạn không thể ngồi yên? Chúng mình sẽ đưa vào playlist after-party.</p>
+      </header>
+      <div class="songs reveal">
+        <form class="form form--songs" id="song-form" novalidate>
+          <div class="field">
+            <label for="song-title">Tên bài hát <span aria-hidden="true">*</span></label>
+            <input id="song-title" name="title" type="text" required aria-describedby="err-song">
+            <p class="error" id="err-song" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="song-artist">Ca sĩ</label>
+            <input id="song-artist" name="artist" type="text">
+          </div>
+          <div class="field">
+            <label for="song-by">Tên bạn</label>
+            <input id="song-by" name="by" type="text" autocomplete="name">
+          </div>
+          <div class="form__actions">
+            <button class="btn btn--solid" type="submit">Thêm vào playlist</button>
+          </div>
+          <p class="form__status" id="song-status" role="status"></p>
+        </form>
+        <div class="songs__list">
+          <p class="eyebrow">Đã gửi từ thiết bị này</p>
+          <ol class="tracklist" id="song-list"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Q&A -->
+    <section class="section section--tint" id="qa">
+      <header class="sec-head reveal">
+        <span class="sec-num">08</span>
+        <p class="eyebrow">Q&amp;A</p>
+        <h2>Những điều bạn có thể thắc mắc</h2>
+      </header>
+      <div class="qa reveal" id="qa-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__names"><span data-bind="bride"></span> <em>&amp;</em> <span data-bind="groom"></span></p>
+    <p class="footer__date" data-bind="dateLabel"></p>
+    <p class="footer__tag" data-bind="hashtag"></p>
+    <ul class="footer__contact" id="contact-list"></ul>
+    <p class="footer__thanks">Cảm ơn bạn đã là một phần trong câu chuyện của chúng mình.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh" hidden>
+    <button class="lightbox__btn lightbox__close" type="button" id="lb-close" aria-label="Đóng">Đóng</button>
+    <button class="lightbox__btn lightbox__prev" type="button" id="lb-prev" aria-label="Ảnh trước">←</button>
+    <div class="lightbox__stage" id="lb-stage"></div>
+    <button class="lightbox__btn lightbox__next" type="button" id="lb-next" aria-label="Ảnh sau">→</button>
+    <p class="lightbox__caption" id="lb-caption"></p>
+  </div>
+
+  <script src="js/content.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

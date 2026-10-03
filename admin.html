@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Quản lý · Hà Vy & Thanh An</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <section class="gate" id="gate">
+    <p class="eyebrow">Dành cho cô dâu &amp; chú rể</p>
+    <h1>Trang quản lý</h1>
+    <form class="form" id="gate-form" novalidate>
+      <div class="field">
+        <label for="gate-code">Mã truy cập</label>
+        <input id="gate-code" type="password" autocomplete="off" aria-describedby="gate-error">
+        <p class="error" id="gate-error" role="alert"></p>
+      </div>
+      <div class="form__actions">
+        <button class="btn btn--solid" type="submit">Mở</button>
+        <a class="link" href="index.html">Về trang chính</a>
+      </div>
+    </form>
+  </section>
+
+  <main class="admin" id="admin" hidden>
+    <header class="admin__head">
+      <div>
+        <p class="eyebrow">Quản lý</p>
+        <h1>Hà Vy &amp; Thanh An</h1>
+      </div>
+      <a class="link" href="index.html">Về trang chính</a>
+    </header>
+    <p class="admin__note"><span id="sync-note" role="status"></span> <button class="btn-text" type="button" id="refresh">Tải lại</button></p>
+
+    <div class="stats" id="stats"></div>
+
+    <section class="admin__block">
+      <div class="admin__block-head">
+        <h2 style="font-size:2rem">Danh sách RSVP</h2>
+        <button class="btn btn--small" type="button" id="export-rsvp">Xuất CSV</button>
+      </div>
+      <div id="rsvp-table"></div>
+    </section>
+
+    <section class="admin__block">
+      <div class="admin__block-head">
+        <h2 style="font-size:2rem">Bài hát được gửi</h2>
+        <button class="btn btn--small" type="button" id="export-songs">Xuất CSV</button>
+      </div>
+      <div id="song-table"></div>
+    </section>
+  </main>
+
+  <script src="js/content.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
